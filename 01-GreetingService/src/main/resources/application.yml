@@ -1,9 +1,13 @@
-
+server:
+  port: 8080
 spring:
   application:
     name: greeting-service
-server:
-  port: 8080
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: prod
 greeting-service:
   greeting: "Hola"
   default-value: "Mundo"
