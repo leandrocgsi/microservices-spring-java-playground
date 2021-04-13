@@ -32,10 +32,10 @@ public class Cambio  implements Serializable {
 	private BigDecimal conversionFactor;
 	
 	@Transient
-	private String environment;
+	private BigDecimal convertedValue;
 	
 	@Transient
-	private BigDecimal convertedValue;
+	private String environment;
 	
 	public Cambio() {}
 
