@@ -1,6 +1,7 @@
 package br.com.erudio.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,10 +29,13 @@ public class Cambio  implements Serializable {
 	private String to;
 
 	@Column(nullable = false)
-	private Double conversionFactor;
+	private BigDecimal conversionFactor;
 	
 	@Transient
 	private String environment;
+	
+	@Transient
+	private BigDecimal convertedValue;
 	
 	public Cambio() {}
 
@@ -59,11 +63,11 @@ public class Cambio  implements Serializable {
 		this.to = to;
 	}
 
-	public Double getConversionFactor() {
+	public BigDecimal getConversionFactor() {
 		return conversionFactor;
 	}
 
-	public void setConversionFactor(Double conversionFactor) {
+	public void setConversionFactor(BigDecimal conversionFactor) {
 		this.conversionFactor = conversionFactor;
 	}
 
@@ -75,11 +79,20 @@ public class Cambio  implements Serializable {
 		this.environment = environment;
 	}
 
+	public BigDecimal getConvertedValue() {
+		return convertedValue;
+	}
+
+	public void setConvertedValue(BigDecimal convertedValue) {
+		this.convertedValue = convertedValue;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((conversionFactor == null) ? 0 : conversionFactor.hashCode());
+		result = prime * result + ((convertedValue == null) ? 0 : convertedValue.hashCode());
 		result = prime * result + ((environment == null) ? 0 : environment.hashCode());
 		result = prime * result + ((from == null) ? 0 : from.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -100,6 +113,11 @@ public class Cambio  implements Serializable {
 			if (other.conversionFactor != null)
 				return false;
 		} else if (!conversionFactor.equals(other.conversionFactor))
+			return false;
+		if (convertedValue == null) {
+			if (other.convertedValue != null)
+				return false;
+		} else if (!convertedValue.equals(other.convertedValue))
 			return false;
 		if (environment == null) {
 			if (other.environment != null)
