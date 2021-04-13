@@ -25,7 +25,7 @@ public class CambioController {
 	
 	@GetMapping(value = "/{amount}/{from}/{to}",
             produces = { "application/json" })
-	public Cambio findById(
+	public Cambio getCambio(
 			@PathVariable("amount") BigDecimal amount,
 			@PathVariable("from") String from,
 			@PathVariable("to") String to
