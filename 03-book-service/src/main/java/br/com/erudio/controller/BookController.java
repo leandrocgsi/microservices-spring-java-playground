@@ -28,14 +28,6 @@ public class BookController {
 		
 		Book book = repository.getById(id);
 		book.setEnvironment(port);
-		/**Book book = new Book();
-		book.setId(Long.valueOf(1));
-		book.setAuthor("Nigel Poulton");
-		book.setTitle("Docker Deep Dive");
-		book.setLaunchDate(new Date());
-		book.setPrice(Double.valueOf(15.8));
-		book.setCurrency("BRL");
-		book.setEnvironment(port); */
 		return book;
 	}
 }
