@@ -44,3 +44,5 @@ spring:
     schemas: book_service
     user: root
     password: admin123
+springdoc:
+  version: 1.5.7
