@@ -9,7 +9,9 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.License;
 
 @OpenAPIDefinition(info =
-@Info(title = "Cambio Service API", version = "v1", description = "Documentation Cambio Service API v1.0"))
+@Info(title = "Cambio Service API",
+	version = "v1",
+	description = "Documentation Cambio Service API v1"))
 public class OpenApiConfiguration {
 
 	@Bean

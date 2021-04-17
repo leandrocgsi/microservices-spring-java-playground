@@ -9,7 +9,9 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.License;
 
 @OpenAPIDefinition(info =
-@Info(title = "Book Service API", version = "v1", description = "Documentation Book Service API v1.0"))
+@Info(title = "Book Service API",
+	version = "v1",
+	description = "Documentation Book Service API v1"))
 public class OpenApiConfiguration {
 
 	@Bean
@@ -24,7 +26,7 @@ public class OpenApiConfiguration {
 						new License()
 						.name("Apache 2.0")
 						.url("http://springdoc.org")
-						)
+					)
 			);
 	}
 }

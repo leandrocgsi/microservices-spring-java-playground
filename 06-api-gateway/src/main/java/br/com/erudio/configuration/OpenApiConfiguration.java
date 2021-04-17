@@ -11,39 +11,29 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
-
 @Configuration
 public class OpenApiConfiguration {
 
 	
 	@Bean
 	@Lazy(false)
-	public List<GroupedOpenApi> apis(SwaggerUiConfigParameters swaggerUiConfigParameters, RouteDefinitionLocator locator) {
-		List<RouteDefinition> definitions = locator.getRouteDefinitions().collectList().block();
+	public List<GroupedOpenApi> apis(
+			SwaggerUiConfigParameters swaggerUiConfigParameters,
+			RouteDefinitionLocator locator) {
+		
+		List<RouteDefinition> definitions = locator.
+				getRouteDefinitions().collectList().block();
+		
 		definitions.stream().filter(
-				routeDefinition -> routeDefinition.getId().matches(".*-service")).forEach(routeDefinition -> {
-			String name = routeDefinition.getId();
-			swaggerUiConfigParameters.addGroup(name);
-			GroupedOpenApi.builder().pathsToMatch("/" + name + "/**").group(name).build();
+				routeDefinition -> routeDefinition.getId()
+					.matches(".*-service"))
+						.forEach(routeDefinition -> {
+							String name = routeDefinition.getId();
+							swaggerUiConfigParameters.addGroup(name);
+							GroupedOpenApi.builder()
+								.pathsToMatch("/" + name + "/**")
+								.group(name).build();
 		});
 		return new ArrayList<>();
-	}
-
-	@Bean
-	public OpenAPI customOpenAPI() {
-		return new OpenAPI()
-			.components(new Components())
-			.info(
-				new Info()
-					.title("Gateway API")
-					.version("v1")
-					.license(
-						new License()
-						.name("Apache 2.0")
-						.url("http://springdoc.org")));
 	}
 }
