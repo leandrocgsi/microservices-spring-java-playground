@@ -3,7 +3,13 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka    
+      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'    
 spring:
   application:
     name: api-gateway  
@@ -22,15 +28,15 @@ spring:
       - id: cambio-service
         uri: lb://cambio-service
         predicates:
-        - Path=/cambio-service/**
+        - Path=/cambio/**
         filters:
-        - RewritePath=/(?<path>.*), /$\{path}
+        - RewritePath=/cambio/(?<path>.*), /$\{path}
       - id: book-service
         uri: lb://book-service
         predicates:
-        - Path=/book-service/**
+        - Path=/book/**
         filters:
-        - RewritePath=/(?<path>.*), /$\{path}
+        - RewritePath=/book/(?<path>.*), /$\{path}
       - id: openapi
         uri: lb://api-gateway
         predicates:
