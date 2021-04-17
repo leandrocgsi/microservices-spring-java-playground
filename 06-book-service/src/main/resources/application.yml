@@ -45,4 +45,5 @@ spring:
     user: root
     password: admin123
 springdoc:
-  version: 1.5.7
+  show-actuator: true
+  api-docs:    path: book-service/v3/api-docs

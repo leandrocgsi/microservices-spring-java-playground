@@ -22,15 +22,11 @@ spring:
       - id: cambio-service
         uri: lb://cambio-service
         predicates:
-        - Path=/cambio/**
-        filters:
-        - RewritePath=/cambio/(?<path>.*), /$\{path}
+        - Path=/cambio-service/**
       - id: book-service
         uri: lb://book-service
         predicates:
-        - Path=/book/**
-        filters:
-        - RewritePath=/book/(?<path>.*), /$\{path}
+        - Path=/book-service/**
       - id: openapi
         uri: lb://api-gateway
         predicates:

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springdoc.core.GroupedOpenApi;
 import org.springdoc.core.SwaggerUiConfigParameters;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionLocator;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +26,7 @@ public class OpenApiConfiguration {
 		List<RouteDefinition> definitions = locator.getRouteDefinitions().collectList().block();
 		definitions.stream().filter(
 				routeDefinition -> routeDefinition.getId().matches(".*-service")).forEach(routeDefinition -> {
-			String name = routeDefinition.getId().replaceAll("-service", "");
+			String name = routeDefinition.getId();
 			swaggerUiConfigParameters.addGroup(name);
 			GroupedOpenApi.builder().pathsToMatch("/" + name + "/**").group(name).build();
 		});
@@ -35,10 +34,16 @@ public class OpenApiConfiguration {
 	}
 
 	@Bean
-	public OpenAPI customOpenAPI(@Value("1.5.7") String appVersion) {
+	public OpenAPI customOpenAPI() {
 		return new OpenAPI()
-				.components(new Components())
-				.info(new Info().title("Gateway API").version(appVersion)
-						.license(new License().name("Apache 2.0").url("http://springdoc.org")));
+			.components(new Components())
+			.info(
+				new Info()
+					.title("Gateway API")
+					.version("v1")
+					.license(
+						new License()
+						.name("Apache 2.0")
+						.url("http://springdoc.org")));
 	}
 }
