@@ -3,6 +3,8 @@ package br.com.erudio.controller;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,8 @@ import br.com.erudio.repository.CambioRepository;
 @RequestMapping("cambio-service")
 public class CambioController {
 
+	private Logger logger = LoggerFactory.getLogger(CambioController.class);
+	
 	@Autowired
 	private Environment environment;
 	
@@ -30,6 +34,8 @@ public class CambioController {
 			@PathVariable("from") String from,
 			@PathVariable("to") String to
 			) {
+		
+		logger.info("getCambio is called with -> {}, {} and {}", amount, from, to);
 		
 		Cambio cambio = repository.findByFromAndTo(from, to);
 		
