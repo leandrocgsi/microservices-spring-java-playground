@@ -20,6 +20,9 @@ resilience4j:
         max-attempts: 5
         wait-duration: 1s
         enable-exponential-backoff: true
+  sleuth:
+    sampler:
+      probability: 1.0
 spring:
   application:
     name: book-service
