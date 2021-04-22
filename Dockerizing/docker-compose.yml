@@ -1,0 +1,50 @@
+version: '3.4'
+
+services:
+  cambio-db:
+    image: mysql:5.7.22
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: admin123
+      MYSQL_DATABASE: cambio_service
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - 3308:3306
+    networks:
+      - erudio-network
+  book-db:
+    image: mysql:5.7.22
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: admin123
+      MYSQL_DATABASE: book_service
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - 3310:3306
+    networks:
+      - erudio-network
+  cambio-service:
+    image: leandrocgsi/cambio-service
+    restart: always
+    build:
+      context: .
+      dockerfile: 08-cambio-service/Dockerfile
+    mem_limit: 700m
+    ports:
+      - 8080:8080
+    depends_on:
+      - cambio-db
+    networks:
+      - erudio-network
+networks:
+    erudio-network:
+        driver: bridge
+    
