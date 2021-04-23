@@ -20,15 +20,12 @@ resilience4j:
         max-attempts: 5
         wait-duration: 1s
         enable-exponential-backoff: true
-  sleuth:
-    sampler:
-      probability: 1.0
 spring:
   application:
     name: book-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/book_service?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://book-db:3310/book_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
     username: root
     password: admin123
   jackson:
@@ -43,10 +40,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   flyway:
-    url: jdbc:mysql://localhost:3306/
-    schemas: book_service
+    url: jdbc:mysql://book-db:3310/book_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
     user: root
     password: admin123
+  sleuth:
+    sampler:
+      probability: 1.0
 springdoc:
   show-actuator: true
   api-docs:
