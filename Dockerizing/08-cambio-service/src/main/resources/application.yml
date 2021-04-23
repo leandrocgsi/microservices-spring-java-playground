@@ -9,7 +9,7 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
     username: root
     password: admin123
   jackson:
@@ -24,10 +24,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
   flyway:
-    url: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
     user: root
     password: admin123
-    driver-class-name: com.mysql.cj.jdbc.Driver
   sleuth:
     sampler:
       probability: 1.0
