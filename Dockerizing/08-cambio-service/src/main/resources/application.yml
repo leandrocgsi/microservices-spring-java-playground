@@ -9,8 +9,8 @@ spring:
     name: cambio-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://cambio-db:3308/cambio_service
-    username: docker
+    url: jdbc:mysql://cambio-db:3306/cambio_service?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&enabledTLSProtocols=TLSv1.2
+    username: root
     password: admin123
   jackson:
     default-property-inclusion: NON_NULL
@@ -22,12 +22,12 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        dialect: org.hibernate.dialect.MySQL57Dialect
   flyway:
-    url: jdbc:mysql://cambio-db:3308/
-    schemas: cambio_service
-    user: docker
+    url: jdbc:mysql://cambio-db:3306/cambio_service?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&enabledTLSProtocols=TLSv1.2
+    user: root
     password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
   sleuth:
     sampler:
       probability: 1.0
