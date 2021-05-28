@@ -11,7 +11,7 @@ jobs:
     steps:
       
     - name: Login to DockerHub Registry
-      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | winpty docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     
     - name: Build Eureka Naming Server Container Image
       working-directory: ./Dockerizing/08-naming-server
