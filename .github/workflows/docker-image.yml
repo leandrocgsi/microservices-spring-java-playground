@@ -9,8 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: action-maven
-      uses: comchangs/action-maven@v0.4-beta
+    - uses: actions/checkout@v2
+    - name: Set up JDK 16
+      uses: actions/setup-java@v2
+      with:
+        java-version: '16'
+        distribution: 'adopt'
 
     - name: Build Eureka Naming Server Container Image
       working-directory: ./Dockerizing/08-naming-server
