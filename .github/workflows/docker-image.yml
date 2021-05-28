@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    
+    - name: action-maven
+      uses: comchangs/action-maven@v0.4-beta
+
     - name: Build Eureka Naming Server Container Image
       working-directory: ./Dockerizing/08-naming-server
       run: mvn spring-boot:build-image -DskipTests
