@@ -1,6 +1,5 @@
 # Microservices with Spring Boot Playground
 [![Continuous Integration with Github Actions](https://github.com/leandrocgsi/MicroservicesWithSpringBootPlayground/actions/workflows/docker-image.yml/badge.svg)](https://github.com/leandrocgsi/MicroservicesWithSpringBootPlayground/actions/workflows/docker-image.yml)
-
 ![Forks](https://img.shields.io/github/forks/leandrocgsi/MicroservicesWithSpringBootPlayground)
 ![Stars](https://img.shields.io/github/stars/leandrocgsi/MicroservicesWithSpringBootPlayground)
 ![Last Commit](https://img.shields.io/github/last-commit/leandrocgsi/MicroservicesWithSpringBootPlayground)
