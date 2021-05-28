@@ -3,6 +3,7 @@ version: '3.4'
 services:
   zipkin-server:
     image: openzipkin/zipkin:2.23.2
+    restart: always
     ports:
       - "9411:9411"
     depends_on:
@@ -16,12 +17,6 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-    networks:
-      - erudio-network
-  springcloud-configserver:
-    image: leandrocgsi/springcloud-configserver:0.0.1-SNAPSHOT
-    ports:
-      - "8888:8888"
     networks:
       - erudio-network
   naming-server:
@@ -41,8 +36,8 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
       RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
-      SPRING_RABBITMQ_HOST: rabbitmq
-      SPRING_ZIPKIN_SENDER_TYPE: rabbit  
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit
     networks:
       - erudio-network
   cambio-db:
@@ -97,8 +92,8 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
       RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
-      SPRING_RABBITMQ_HOST: rabbitmq
-      SPRING_ZIPKIN_SENDER_TYPE: rabbit   
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit  
       SPRING.DATASOURCE.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.DATASOURCE.USERNAME: root
       SPRING.DATASOURCE.PASSWORD: admin123
@@ -123,8 +118,8 @@ services:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
       SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
       RABBIT_URI: amqp://guest:guest@rabbit-mq:5672
-      SPRING_RABBITMQ_HOST: rabbitmq
-      SPRING_ZIPKIN_SENDER_TYPE: rabbit      
+      SPRING_RABBITMQ_HOST: rabbit-mq
+      SPRING_ZIPKIN_SENDER_TYPE: rabbit 
       SPRING.DATASOURCE.URL: jdbc:mysql://book-db:3310/book_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.DATASOURCE.USERNAME: root
       SPRING.DATASOURCE.PASSWORD: admin123
