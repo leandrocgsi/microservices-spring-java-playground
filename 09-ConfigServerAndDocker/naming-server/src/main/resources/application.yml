@@ -2,6 +2,11 @@ server.port: 8761
 spring:
   application:
     name: naming-server
+  config:
+    import: optional:configserver:http://localhost:8888/
+  cloud:
+    config:
+      profile: dev
 eureka:
   client:
     register-with-eureka: false

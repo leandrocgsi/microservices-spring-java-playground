@@ -8,9 +8,14 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/leandrocgsi/config-server/
+          #uri: https://github.com/leandrocgsi/config-server/
+          uri: https://github.com/leandrocgsi/erudio-config-server
           # username: username
           # password: password
           default-label: main
           search-paths:
           - 'greeting-service*'
+          - 'naming-server*'
+          - 'api-gateway*'
+          - 'cambio-service*'
+          - 'book-service*'
