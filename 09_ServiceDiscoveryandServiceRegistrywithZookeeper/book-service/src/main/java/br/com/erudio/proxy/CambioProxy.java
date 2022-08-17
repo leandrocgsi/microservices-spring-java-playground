@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.erudio.response.Cambio;
 
-@FeignClient(name = "cambio-service", url = "localhost:8000")
+@FeignClient(name = "cambio-service")
+//@EnableDiscoveryClient
 public interface CambioProxy {
 	
 	@GetMapping(value = "/cambio-service/{amount}/{from}/{to}")
