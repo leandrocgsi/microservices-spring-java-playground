@@ -20,10 +20,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-#springdoc:
+springdoc:
   #show-actuator: true
-  #api-docs:
-    #path: /v3/api-docs
+  api-docs:
+    path: /cambio-service/v3/api-docs
 logging:
   level:
     '[org.apache.zookeeper.ClientCnxn]': WARN
