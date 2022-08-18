@@ -1,0 +1,31 @@
+server:
+  port: 8765
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: cambio-service
+        uri: lb://cambio-service
+        predicates:
+        - Path=/cambio-service/**
+      - id: book-service
+        uri: lb://book-service
+        predicates:
+        - Path=/book-service/**
+      - id: openapi
+        uri: lb://api-gateway
+        predicates:
+        - Path=/v3/api-docs/**
+        filters:
+        - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+logging:
+  level:
+    '[org.apache.zookeeper.ClientCnxn]': WARN
+          #lower-case-service-id: true
