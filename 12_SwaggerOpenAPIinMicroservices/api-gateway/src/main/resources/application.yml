@@ -5,11 +5,13 @@ spring:
     name: api-gateway
   cloud:
     zookeeper:
+      discovery:
+        enabled: true
       connect-string: localhost:2181
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      #discovery:
+        #locator:
+          #enabled: true
       routes:
       - id: cambio-service
         uri: lb://cambio-service
@@ -25,6 +27,10 @@ spring:
         - Path=/v3/api-docs/**
         filters:
         - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+springdoc:
+  version: '@springdoc.version@'
+  swagger-ui:
+    use-root-path: true
 logging:
   level:
     '[org.apache.zookeeper.ClientCnxn]': WARN
