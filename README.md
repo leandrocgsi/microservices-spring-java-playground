@@ -23,6 +23,11 @@
 [Sping Release Dates](https://calendar.spring.io/)
 [Sping Initializr](https://start.spring.io/)
 
+[Spring Doc OpenAPI v2.x Migration Guide](https://github.com/springdoc/springdoc-openapi-demos/wiki/springdoc-openapi-2.x-migration-guide)
+[Spring Doc OpenAPI - v2.0.0](https://github.com/springdoc/springdoc-openapi/tree/v2.0.0-M4#demo-spring-boot-2-and-spring-hateoas-with-openapi-3)
+[Spring Doc OpenAPI - Documentation](https://springdoc.org/v2/#faq)
+[Spring Doc OpenAPI - Add support for Jakarta EE](https://github.com/springdoc/springdoc-openapi/issues/1284)
+
 # [Microservices do 0 à Google Cloud Platform com Spring Boot Kubernetes e Docker](https://www.udemy.com/course/microservices-do-0-a-gcp-com-spring-boot-kubernetes-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 ### [Domine microsserviços com Spring Boot, Spring Cloud, Docker, Kubernetes e Google Cloud Platform](https://www.udemy.com/course/microservices-do-0-a-gcp-com-spring-boot-kubernetes-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 
