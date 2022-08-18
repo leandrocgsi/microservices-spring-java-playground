@@ -1,5 +1,22 @@
 server:
   port: 8100
+resilience4j:
+  bulkhead:
+    instances:
+      default:
+        max-concurrent-calls: 10
+  ratelimiter:
+    instances:
+      default:
+        limit-for-period: 2
+        limit-refresh-period: 10s
+  retry:
+    instances:
+      foo-bar:
+        #max-attempts: 7
+        max-attempts: 5
+        wait-duration: 1s
+        enable-exponential-backoff: true
 spring:
   application:
     name: book-service
