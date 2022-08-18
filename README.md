@@ -4,6 +4,25 @@
 ![Stars](https://img.shields.io/github/stars/leandrocgsi/MicroservicesWithSpringBootPlayground)
 ![Last Commit](https://img.shields.io/github/last-commit/leandrocgsi/MicroservicesWithSpringBootPlayground)
 
+# Service URL's
+
+[Zookeeper Panel - http://localhost:10000/commands](http://localhost:10000/commands)
+
+[Endpoint Cambio Service](http://localhost:8000/cambio-service/5/USD/BRL)
+[Swagger Cambio Service - http://localhost:8000/swagger-ui/index.html](http://localhost:8000/swagger-ui/index.html)
+[Swagger API Docs Cambio Service - http://localhost:8000/swagger-ui/index.html](http://localhost:8000/swagger-ui/index.html)
+
+[Endpoint Book Service - http://localhost:8100/book-service/5/CLP](http://localhost:8100/book-service/5/CLP)
+[Swagger Book Service - http://localhost:8100/swagger-ui/index.html](http://localhost:8100/swagger-ui/index.html)
+[Swagger API Docs Book Service - http://localhost:8100/swagger-ui/index.html](http://localhost:8100/swagger-ui/index.html)
+
+[API Gateway Cambio - http://localhost:8765/cambio-service/8/USD/CLP]()
+[API Gateway Book](http://localhost:8765/book-service/5/CLP)
+[API Gateway Swagger UI - http://localhost:8765/swagger-ui/index.html](http://localhost:8765/swagger-ui/index.html)
+
+[Sping Release Dates](https://calendar.spring.io/)
+[Sping Initializr](https://start.spring.io/)
+
 # [Microservices do 0 à Google Cloud Platform com Spring Boot Kubernetes e Docker](https://www.udemy.com/course/microservices-do-0-a-gcp-com-spring-boot-kubernetes-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 ### [Domine microsserviços com Spring Boot, Spring Cloud, Docker, Kubernetes e Google Cloud Platform](https://www.udemy.com/course/microservices-do-0-a-gcp-com-spring-boot-kubernetes-e-docker/?couponCode=GTHB_FLASH_SALE2021)
 
