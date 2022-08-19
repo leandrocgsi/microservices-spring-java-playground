@@ -12,7 +12,6 @@
 	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api-gateway</name>
-	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>18</java.version>
 		<spring-cloud.version>2022.0.0-M4</spring-cloud.version>
@@ -31,15 +30,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
 		</dependency>
-		<!-- <dependency>
-		   <groupId>org.springdoc</groupId>
-		   <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-		   <version>${springdoc.version}</version>
-		</dependency> -->
 		
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+		   <groupId>org.springdoc</groupId>
+		   <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 		   <version>${springdoc.version}</version>
 		</dependency>
 
