@@ -1,8 +1,10 @@
 ﻿INSERT INTO `cambio` (`from_currency`, `to_currency`, `conversion_factor`) VALUES
-                     ('USD', 'BRL', 5.73),
-					 ('USD', 'EUR', 0.84),
-					 ('USD', 'GBP', 0.73),
-					 ('USD', 'ARS', 92.56),
-					 ('USD', 'CLP', 713.30),
-					 ('USD', 'COP', 3665.00),
+                     ('USD', 'BRL', 5.22),
+					 ('USD', 'EUR', 1.00),
+					 ('USD', 'GBP', 0.85),
+					 ('USD', 'ARS', 136.03),
+					 ('USD', 'CLP', 944.65),
+					 ('USD', 'COP', 4407.13),
+					 ('USD', 'INR', 79.93),
+					 ('USD', 'JPY', 137.20),
 					 ('USD', 'MXN', 20.15);
